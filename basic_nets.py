@@ -48,6 +48,13 @@ def visualize_classes(data):
     plt.ylabel('feature 2')
     plt.title('Class 1')
     plt.show()
+    plt.figure('Data')
+    plt.scatter(*zip(*class1), marker = '3', label = 'Class 0')
+    plt.scatter(*zip(*class2), marker = '4', label = 'Class 1')
+    plt.xlabel('feature 1')
+    plt.ylabel('feature 2')
+    plt.title('Data')
+    plt.show()
     
 def split_training_test(x_data, y_data, test_size):
     x_train, x_test, y_train, y_test = train_test_split(x_data, y_data,
@@ -222,7 +229,7 @@ def stats(y, rounded, train_test):
     
 if __name__ == '__main__':
     data = read_data('data.mat')
-    #visualize_classes(data)
+    visualize_classes(data)
     x_train, x_test, y_train, y_test = split_training_test(data[:, 0:2],
                                                            data[:, 2], 0.2)
     #try different nets
